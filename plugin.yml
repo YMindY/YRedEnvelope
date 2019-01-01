@@ -1,0 +1,15 @@
+name: YRedEnvelope
+api:
+- 3.0.0
+- 4.0.0
+version: '1.0.0'
+load: POSTWORLD
+main: yxmingy\YRedEnvelope\Main
+author: xMingcommands:
+  hb:
+    description: "红包主指令"
+    permission: yxmingy.command.hb
+    usage: "/hb [红包序号]"
+permissions:
+  yxmingy.command.hb: 
+    default: true
