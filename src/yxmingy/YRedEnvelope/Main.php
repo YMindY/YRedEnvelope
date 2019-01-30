@@ -104,9 +104,14 @@ class Main extends Starter
           return true;
         }
       }
+      if($args[1] > 50)
+      {
+        $sender->sendMessage("你这份数也太多了吧! 你是魔鬼么!？");
+        return true;
+      }
       if($args[2] < 0.25)
       {
-        $sender->sendMessage("单个红包太小了! 你是魔鬼么?");
+        $sender->sendMessage("单个红包太小了! 你个秀儿!？");
         return true;
       }
       if($sender instanceof \pocketmine\Player) $eapi->reduceMoney($name,$total);
@@ -154,6 +159,11 @@ class Main extends Starter
       'pieces'=>[],
       'getters'=>[]
       );
+      if($args[1] > 50)
+      {
+        $sender->sendMessage("你这份数也太多了吧! 你是魔鬼么!？");
+        return true;
+      }
       $awards=array();
       for($i=0;$i<$args[1];$i++)
       {
