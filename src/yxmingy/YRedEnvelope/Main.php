@@ -98,7 +98,7 @@ class Main extends Starter
       $total = $args[2] * $args[1];
       if($wallet < $total)
       {
-        if($sender instanceof \pocketmine\Player && $sender->isOp())
+        if($sender instanceof \pocketmine\Player && !$sender->isOp())
         {
           $sender->sendMessage("少年你钱不够{$total}啊");
           return true;
@@ -114,7 +114,7 @@ class Main extends Starter
         $sender->sendMessage("单个红包太小了! 你个秀儿!？");
         return true;
       }
-      if($sender instanceof \pocketmine\Player) $eapi->reduceMoney($name,$total);
+      if($sender instanceof \pocketmine\Player && !$sender->isOp()) $eapi->reduceMoney($name,$total);
       $hb = array(
       'type'=>'fair',
       'pieces'=>[],
@@ -147,13 +147,13 @@ class Main extends Starter
       $total = $args[2];
       if($wallet < $total)
       {
-        if($sender instanceof \pocketmine\Player && $sender->isOp())
+        if($sender instanceof \pocketmine\Player && !$sender->isOp())
         {
           $sender->sendMessage("少年你钱不够{$total}啊");
           return true;
         }
       }
-      if($sender instanceof \pocketmine\Player) $eapi->reduceMoney($name,$total);
+      if($sender instanceof \pocketmine\Player && $sender->isOp()) $eapi->reduceMoney($name,$total);
       $hb = array(
       'type'=>'luck',
       'pieces'=>[],
