@@ -153,7 +153,7 @@ class Main extends Starter
           return true;
         }
       }
-      if($sender instanceof \pocketmine\Player && $sender->isOp()) $eapi->reduceMoney($name,$total);
+      if($sender instanceof \pocketmine\Player && !$sender->isOp()) $eapi->reduceMoney($name,$total);
       $hb = array(
       'type'=>'luck',
       'pieces'=>[],
